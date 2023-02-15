@@ -124,7 +124,7 @@ always_comb begin
         MEM_d[lru_d].data = wdata_i; // TODO*
         MEM_d[lru_d].tag = wtag; // TODO*
         MEM_d[lru_d].valid = '1; // TODO*
-        lru_d = lru_d ? '1 : '0; // TODO*
+        lru_d = lru_d ? '0 : '1; // TODO*
     end
 end
 always_ff @(posedge clk_i) begin
