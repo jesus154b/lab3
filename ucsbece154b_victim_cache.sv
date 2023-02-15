@@ -116,7 +116,7 @@ always_comb begin
         if (en_i && MEM_q[i].valid && (rtag==MEM_q[i].tag)) begin
             hit_o = '1; // TODO
             rdata_o = MEM_q[i].data; // TODO
-            lru_d = !i; // TODO
+            lru_d = i ? '1 : '0; // TODO
         end
     end
     // handle write port
@@ -124,7 +124,7 @@ always_comb begin
         MEM_d[lru_d].data = wdata_i; // TODO*
         MEM_d[lru_d].tag = wtag; // TODO*
         MEM_d[lru_d].valid = '1; // TODO*
-        lru_d = !lru_d; // TODO*
+        lru_d = lru_d ? '1 : '0; // TODO*
     end
 end
 always_ff @(posedge clk_i) begin
