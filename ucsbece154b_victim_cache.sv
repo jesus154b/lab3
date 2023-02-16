@@ -167,7 +167,7 @@ way_index_t lru_d, lru_q, mru_d, mru_q;
 
 function void lru_bump(input way_index_t way);
     // function to move way to MRU while maintaining DLL structure
-    MEM_d[MEM_d[way].mru].lru = (way == lru_d) ? 0': MEM_d[way].lru; // TODO
+    MEM_d[MEM_d[way].mru].lru = (way == lru_d) ? '0: MEM_d[way].lru; // TODO
     MEM_d[MEM_d[way].lru].mru = MEM_d[way].mru; // TODO
     lru_d = (way == lru_d) ? MEM_d[way].mru : lru_d; // TODO
     MEM_d[way].lru = mru_d; // TODO
